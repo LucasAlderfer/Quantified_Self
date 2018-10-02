@@ -21,6 +21,29 @@ class Api::V1::FoodsController < ApplicationController
     end
   end
 
+  def update
+    unless Food.where(id: params[:id]).count == 0
+      food = Food.find(params[:id])
+      food.update(food_params)
+      if food.save
+        render json: food
+      else
+        render status: 400
+      end
+    else
+      render status: 404
+    end
+  end
+
+  def destroy
+    unless Food.where(id: params[:id]).count == 0
+      Food.delete(params[:id])
+      render status: 204
+    else
+      render status: 404
+    end
+  end
+
   private
 
   def food_params
