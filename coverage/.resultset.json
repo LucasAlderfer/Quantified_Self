@@ -17,6 +17,19 @@
         1,
         1,
         1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        6,
+        6,
+        6,
+        null,
+        null,
         null
       ],
       "/Users/lucasdevelopment/turing/4module/quantified_self/app/models/meal.rb": [
@@ -24,6 +37,16 @@
         1,
         1,
         1,
+        null
+      ],
+      "/Users/lucasdevelopment/turing/4module/quantified_self/app/poros/favorite_food.rb": [
+        1,
+        1,
+        null,
+        1,
+        10,
+        10,
+        null,
         null
       ],
       "/Users/lucasdevelopment/turing/4module/quantified_self/app/controllers/api/v1/foods_controller.rb": [
@@ -81,6 +104,15 @@
         null,
         null
       ],
+      "/Users/lucasdevelopment/turing/4module/quantified_self/app/controllers/api/v1/favorite_foods_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/lucasdevelopment/turing/4module/quantified_self/app/controllers/api/v1/food_meals_controller.rb": [
         1,
         null,
@@ -132,6 +164,6 @@
         null
       ]
     },
-    "timestamp": 1538517553
+    "timestamp": 1538528352
   }
 }
