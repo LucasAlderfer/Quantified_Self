@@ -60,8 +60,9 @@ describe Food do
       meal_4.food_meals.create(food: food_1)
       meal_4.food_meals.create(food: food_2)
       meal_5.food_meals.create(food: food_1)
-      expected = [FavoriteFood.new(5, [food_1]), FavoriteFood.new(4, [food_2]), FavoriteFood.new(3, [food_3])]
-      expect(Food.favorite_foods).to eq(expected)
+      expect(Food.favorite_foods.count).to eq(3)
+      expect(Food.favorite_foods.first.class).to eq(FavoriteFood)
+      expect(Food.favorite_foods.first.foods.first).to eq(food_1)
     end
   end
 end

@@ -1,7 +1,8 @@
 class Api::V1::FavoriteFoodsController < ApplicationController
 
   def index
-    render json: Food.favorite_foods
+    favorite_foods_array = Food.favorite_foods
+    render json: FavoriteFoodPresenter.new(favorite_foods_array).info
   end
 
 end

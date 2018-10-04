@@ -4,16 +4,40 @@ class Food < ApplicationRecord
   has_many :meals, through: :food_meals
 
   def self.most_eaten
-    select('foods.*, count(food_meals.id) as timesEaten').joins(:food_meals).group(:id).order('timesEaten desc').limit(3)
+    select('foods.*, count(food_meals.id) as timesEaten').joins(:food_meals).group(:id).order('timesEaten desc').all
+  end
+
+  def self.top_times_eaten
+    foods_in_order = Food.most_eaten
+    counts = []
+    foods_in_order.each do |food|
+      count = food.food_meals.count
+      unless counts.include?(count)
+        counts << count
+        return counts if counts.length == 3
+        (return counts if counts.length == Food.count) if Food.count <= 2
+      end
+    end
   end
 
   def self.favorite_foods
-    foods = Food.most_eaten
-    foods.inject([]) do |array, food|
-      times = food.food_meals.count
-      #This only works for one food per amount, Going to need to be much much more crafty for the groups for each amount to be brought in together so that I don't manually make an array to pass in
-      array << FavoriteFood.new(times, [food])
-      array
+    array = []
+    counts = Food.top_times_eaten
+    count_hash = counts.inject({}) do |hash, count|
+      foods = Food.all
+      food_array = []
+      foods.each do |food|
+        if food.food_meals.count == count
+          food_array << food
+          food_array
+        end
+      end
+      hash[count] = food_array
+      hash
     end
+    count_hash.each do |times, food|
+      array << FavoriteFood.new(times, food)
+    end
+    array
   end
 end
