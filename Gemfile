@@ -21,6 +21,7 @@ gem 'puma', '~> 3.7'
 gem 'rspec-rails'
 gem 'rake'
 gem 'active_model_serializers'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
