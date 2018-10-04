@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         post '/foods/:id', to: 'food_meals#create'
         delete '/foods/:id', to: 'food_meals#destroy'
       end
+      get '/favorite_foods', to: 'favorite_foods#index'
     end
   end
 end
