@@ -13,8 +13,12 @@
   - See one specific food by id: get '/api/v1/foods/:id'
 
   - Create a new food in the database: post '/api/v1/foods'
+    - Parameters will need to be passed in the format:
+      { "food": { "name": "Name of food here", "calories": Calories here} }
 
   - Update an existing food in the database: patch '/api/v1/foods/:id'
+    - Parameters will need to be passed in the format:
+      { "food": { "name": "Mint", "calories": "14"} }
 
   - Delete and existing food in the database: delete '/api/v1/foods/:id'
 
@@ -23,8 +27,17 @@
   - See one specific meal in the database by id: get '/api/v1/meals/:meal_id/foods'
 
   - Add a food to a specific meal: post '/api/v1/meals/:meal_id/foods/:id'
+    - Parameters of both meal_id and id are required, id is the id of the food to be added
+    - Successful addition of a food to a meal will display:
+    {
+      "message": "Successfully added FOODNAME to MEALNAME"
+    }
 
   - Remove a food from a specific meal: delete '/api/v1/meals/:meal_id/foods/:id'
+    - Successful removal of a food from a meal will display:
+    {
+      "message": "Successfully removed FOODNAME from MEALNAME"
+    }
 
   - See the favorite foods in the database:
     - This metric is determined by the foods that have been included in the highest number of meals, returning all the foods at each of the highest 3 number of times that a food has been eaten, but only returning them if the number of times is higher than 1.
