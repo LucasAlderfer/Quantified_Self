@@ -1,6 +1,7 @@
 **This repository is for a project completed as a part of the Turing School of Software and Design's Backend Engineering Program**
 
 *Quantified Self - Rails*
+*This project is deployed at https://young-peak-59858.herokuapp.com*
 
 -The purpose of this project was to build a versioned API that could be used by a front end, while using a CI tool, in this case TravisCI, and maintaining readable and fully tested code to continue to practice the development of versioned APIs on Rails.
 
